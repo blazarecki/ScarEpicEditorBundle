@@ -1,0 +1,22 @@
+container:  options.container
+base_path:  options.base_path
+client_side_storage:  options.client_side_storage
+local_storage_name:  options.local_storage_name
+parser:  options.parser
+focus_on_load:  options.focus_on_load
+file:
+    name:  options.file.name
+    default_content:  options.file.default_content
+    auto_save:  options.file.auto_save
+
+theme:
+    base:  options.theme.base
+    preview:  options.theme.preview
+    editor:  options.theme.editor
+
+shortcut:
+    modifier:  options.shortcut.modifier
+    fullscreen:  options.shortcut.fullscreen
+    preview:  options.shortcut.preview
+    edit:  options.shortcut.edit
+

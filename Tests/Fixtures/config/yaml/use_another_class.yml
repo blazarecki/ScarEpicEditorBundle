@@ -1,0 +1,2 @@
+scar_epic_editor:
+    class: "Scar\EpicEditorBundle\Tests\Fixtures\Form\Type\OtherClassFormType"
