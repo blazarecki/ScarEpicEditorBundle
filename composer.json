@@ -28,5 +28,5 @@
     "config": {
         "bin-dir": "bin/"
     },
-    "target-dir": "Scar/ScarEpicEditorBundle"
+    "target-dir": "Scar/EpicEditorBundle"
 }
