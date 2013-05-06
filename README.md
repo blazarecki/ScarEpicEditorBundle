@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/benjaminlazarecki/ScarEpicEditorBundle.png)](http://travis-ci.org/benjaminlazarecki/ScarEpicEditorBundle)
 
-The bundle provides an [Epic Editor](http://oscargodson.github.io/EpicEditor/) integration for your Symfony2 Project. It automatically registers
+The bundle provides an [EpicEditor](http://oscargodson.github.io/EpicEditor/) integration for your Symfony2 Project. It automatically registers
 the new `epic_editor` form type which can be easily configured.
 
 ## Documentation
@@ -17,6 +17,6 @@ If you'd like to contribute, feel free to propose a PR!
 
 ## License
 
-The Scar Epic Editor Bundle is under the MIT license. For the full copyright and license information, please read the
+The Scar EpicEditor Bundle is under the MIT license. For the full copyright and license information, please read the
 [LICENSE](https://github.com/benjaminlazarecki/ScarEpicEditorBundle/blob/master/LICENSE) file that was distributed with this
 source code.
