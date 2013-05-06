@@ -64,5 +64,5 @@ You can also use your own EpicEditorType class
 
 ```
 scar_epic_editor:
-    class: Path\To\MyClass
+    class: "Path\To\YourClass"
 ```
