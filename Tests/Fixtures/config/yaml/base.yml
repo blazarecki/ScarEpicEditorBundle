@@ -1,9 +1,13 @@
 container:  options.container
+textarea: options.textarea
 base_path:  options.base_path
 client_side_storage:  options.client_side_storage
 local_storage_name:  options.local_storage_name
+use_native_fullscreen: options.use_native_fullscreen,
 parser:  options.parser
 focus_on_load:  options.focus_on_load
+autogrow: options.autogrow
+
 file:
     name:  options.file.name
     default_content:  options.file.default_content
@@ -14,9 +18,18 @@ theme:
     preview:  options.theme.preview
     editor:  options.theme.editor
 
+button:
+    preview: options.preview
+    fullscreen: options.fullscreen
+    bar: options.bar
+
 shortcut:
     modifier:  options.shortcut.modifier
     fullscreen:  options.shortcut.fullscreen
     preview:  options.shortcut.preview
     edit:  options.shortcut.edit
 
+string:
+    toggle_preview: options.toggle_preview,
+    toggle_edit: options.toggle_edit,
+    toggle_fullscreen: option.toggle_fullscreen

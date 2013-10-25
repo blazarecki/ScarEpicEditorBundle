@@ -74,8 +74,10 @@ class ScarEpicEditorExtensionTest extends \PHPUnit_Framework_TestCase
         $this->container->compile();
 
         $this->assertTrue(
-            in_array('ScarEpicEditorBundle:Form',
-            $this->container->getParameter('templating.helper.form.resources'))
+            in_array(
+                'ScarEpicEditorBundle:Form',
+                $this->container->getParameter('templating.helper.form.resources')
+            )
         );
     }
 

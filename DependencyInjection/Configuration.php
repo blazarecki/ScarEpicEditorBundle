@@ -36,7 +36,9 @@ class Configuration implements ConfigurationInterface
         $this->getBaseNodeDefinition($configsNode);
         $this->getFileNodeDefinition($configsNode);
         $this->getThemeNodeDefinition($configsNode);
+        $this->getButtonNodeDefinition($configsNode);
         $this->getShortcutNodeDefinition($configsNode);
+        $this->getStringNodeDefinition($configsNode);
 
         return $treeBuilder;
     }
@@ -73,7 +75,10 @@ class Configuration implements ConfigurationInterface
         return $node
             ->children()
                 ->scalarNode('container')
-                    ->defaultValue('epic_editor')
+                    ->defaultValue('epiceditor')
+                ->end()
+                ->scalarNode('textarea')
+                  ->defaultNull()
                 ->end()
                 ->scalarNode('base_path')
                     ->defaultValue('/bundles/scarepiceditor')
@@ -91,6 +96,9 @@ class Configuration implements ConfigurationInterface
                     ->defaultValue('marked')
                 ->end()
                 ->booleanNode('focus_on_load')
+                    ->defaultFalse()
+                ->end()
+                ->booleanNode('autogrow')
                     ->defaultFalse()
                 ->end()
             ->end();
@@ -111,7 +119,7 @@ class Configuration implements ConfigurationInterface
                 ->addDefaultsIfNotSet()
                 ->children()
                     ->scalarNode('name')
-                        ->defaultValue('epic_editor')
+                        ->defaultValue('epiceditor')
                     ->end()
                     ->scalarNode('default_content')
                         ->defaultValue('')
@@ -141,7 +149,7 @@ class Configuration implements ConfigurationInterface
                         ->defaultValue('/themes/base/epiceditor.css')
                     ->end()
                     ->scalarNode('preview')
-                        ->defaultValue('/themes/preview/github.css')
+                        ->defaultValue('/themes/preview/preview-dark.css')
                     ->end()
                     ->scalarNode('editor')
                         ->defaultValue('/themes/editor/epic-dark.css')
@@ -149,6 +157,33 @@ class Configuration implements ConfigurationInterface
                 ->end()
             ->end();
     }
+
+  /**
+   * Gets the button node definition.
+   *
+   * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node The config node definition.
+   *
+   * @return \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition The node definition.
+   */
+  protected function getButtonNodeDefinition(ArrayNodeDefinition $node)
+  {
+    return $node
+        ->children()
+        ->arrayNode('button')
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->scalarNode('preview')
+                    ->defaultTrue()
+                ->end()
+                ->scalarNode('fullscreen')
+                    ->defaultTrue()
+                ->end()
+                ->scalarNode('bar')
+                    ->defaultValue('auto')
+                ->end()
+            ->end()
+        ->end();
+  }
 
     /**
      * Gets the shortcut node definition.
@@ -173,9 +208,33 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('preview')
                             ->defaultValue(80)
                         ->end()
-                        ->scalarNode('edit')
-                            ->defaultValue('79')
-                        ->end()
+                    ->end()
+                ->end()
+            ->end();
+    }
+
+    /**
+     * Gets the string node definition.
+     *
+     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node The config node definition.
+     *
+     * @return \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition The node definition.
+     */
+    protected function getStringNodeDefinition(ArrayNodeDefinition $node)
+    {
+        return $node
+            ->children()
+            ->arrayNode('string')
+                ->addDefaultsIfNotSet()
+                ->children()
+                    ->scalarNode('toggle_preview')
+                        ->defaultValue('Toggle Preview Mode')
+                    ->end()
+                    ->scalarNode('toggle_edit')
+                        ->defaultValue('Toggle Edit Mode')
+                    ->end()
+                    ->scalarNode('toggle_fullscreen')
+                        ->defaultValue('Enter Fullscreen')
                     ->end()
                 ->end()
             ->end();
